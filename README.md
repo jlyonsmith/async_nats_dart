@@ -1,6 +1,6 @@
 # Async NATS
 
-A pure-Dart [NATS](https://nats.io) messaging protocol client with no runtime dependencies.
+A pure-Dart [NATS](https://nats.io) messaging protocol client with no runtime dependencies. This NATS client gives you a clean `Uint8List` payload allowing you to use whatever message format you want; JSON, MessagePack, etc.
 
 ## Features
 
@@ -10,7 +10,7 @@ A pure-Dart [NATS](https://nats.io) messaging protocol client with no runtime de
 - Queue groups
 - Username/password and token authentication
 - Stream-based subscriptions (`Subscriber` extends `Stream<Message>`)
-- Connected/disconnected lifecycle callbacks
+- Disconnected lifecycle callback
 
 ## Usage
 

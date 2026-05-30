@@ -15,3 +15,9 @@
 ### Change/Deprecated/Removed/Fixed/Security
 
 - N/A
+
+## v0.1.1 - 2026-05-30
+
+### Change
+
+- Fix links to GitHub repo and README content
