@@ -1,0 +1,8 @@
+# Ignore build output
+.dart_tool/
+
+# Ignore scratch directory
+scratch/
+
+# Do not ignore the .gitkeep file
+!scratch/.gitkeep

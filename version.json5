@@ -1,0 +1,40 @@
+{
+  vars: {
+    major: 0,
+    minor: 1,
+    patch: 0,
+    build: 5,
+    tz: "America/Los_Angeles",
+  },
+  calcVars: {
+    nextBuild: "build + 1",
+  },
+  operations: {
+    incrMajor: "major += 1; minor = 0; patch = 0; build = nextBuild",
+    incrMinor: "minor += 1; patch = 0; build = nextBuild",
+    incrPatch: "patch += 1; build = nextBuild",
+    incrBuild: "build = nextBuild",
+  },
+  targets: [
+    {
+      description: "Git Tag Name",
+      files: ["scratch/version.tag.txt"],
+      write: 'str::from(major) + "." + str::from(minor) + "." + str::from(patch)',
+    },
+    {
+      description: "Git Tag Description",
+      files: ["scratch/version.desc.txt"],
+      write: '"Version v" + str::from(major) + "." + str::from(minor) + "." + str::from(patch) + "+" + str::from(build)',
+    },
+    {
+      description: "Flutter/Dart Pubspec",
+      files: ["./pubspec.yaml"],
+      updates: [
+        {
+          search: "(?P<begin>version: *)[0-9]+\\.[0-9]+\\.[0-9]+\\+[0-9]+",
+          replace: 'begin + str::from(major) + "." + str::from(minor) + "." + str::from(patch) + "+" + str::from(build)',
+        },
+      ],
+    },
+  ],
+}
