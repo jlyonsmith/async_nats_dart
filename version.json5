@@ -31,8 +31,8 @@
       files: ["./pubspec.yaml"],
       updates: [
         {
-          search: "(?P<begin>version: *)[0-9]+\\.[0-9]+\\.[0-9]+\\+[0-9]+",
-          replace: 'begin + str::from(major) + "." + str::from(minor) + "." + str::from(patch) + "+" + str::from(build)',
+          search: "(?P<begin>version: *)[0-9]+\\.[0-9]+\\.[0-9]",
+          replace: 'begin + str::from(major) + "." + str::from(minor) + "." + str::from(patch)',
         },
       ],
     },
